@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "tags_binder",
   "version": "${version}",
-
   "name": "Tags Binder",
   "description": "Bind tags in ease",
   "authors": [
@@ -11,20 +10,17 @@
   "contact": {
     "homepage": "https://github.com/DM-Earth"
   },
-
   "license": "GPL-3.0",
   "icon": "assets/tags_binder/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.dm.earth.tags_binder.TagsBinder"
+      "com.dm.earth.tags_binder.test.TagsBinderTest"
     ]
   },
   "mixins": [
     "tags_binder.mixins.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.14.6",
     "fabric": "*",
