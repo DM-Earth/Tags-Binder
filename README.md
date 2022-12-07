@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-	modImplementation include('com.github.DM-Earth:Tags-Binder:${project.tags_binder_version}')
+	modImplementation include(“com.github.DM-Earth:Tags-Binder:${project.tags_binder_version}”)
 }
 ```
 
