@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "tags_binder",
   "version": "${version}",
 
-  "name": "modid",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Tags Binder",
+  "description": "Bind tags in ease",
   "authors": [
     "DM Earth"
   ],
@@ -12,17 +12,17 @@
     "homepage": "https://github.com/DM-Earth"
   },
 
-  "license": "MIT",
-  "icon": "assets/modid/icon.png",
+  "license": "GPL-3.0",
+  "icon": "assets/tags_binder/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.dm.earth.modid.ModId"
+      "com.dm.earth.tags_binder.TagsBinder"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "tags_binder.mixins.json"
   ],
 
   "depends": {
