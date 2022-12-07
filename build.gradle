@@ -10,8 +10,7 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
-repositories {
-}
+repositories {}
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -39,7 +38,7 @@ java {
 
 jar {
     from('LICENSE') {
-        rename { "${it }_${project.archivesBaseName}"}
+        rename { "${it}_${project.archivesBaseName}" }
     }
 }
 
@@ -52,6 +51,5 @@ publishing {
     }
 
     // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-    repositories {
-    }
+    repositories {}
 }
