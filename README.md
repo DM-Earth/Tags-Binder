@@ -2,6 +2,18 @@
 
 This is a small library mod for **Minecraft 1.18.2 Fabric/Quilt** which allows mod and modpack developers to register/remove tags for items, blocks and fluids (will support more in the future).
 
+## Include this mod (Loom)
+
+```gradle
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+	modImplementation include('com.github.DM-Earth:Tags-Binder:${project.tags_binder_version}')
+}
+```
+
 ## Usage
 
 ### Listening to `LoadTagsCallback` event
