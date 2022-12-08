@@ -3,9 +3,7 @@
   "minVersion": "0.8",
   "package": "com.dm.earth.tags_binder.mixin",
   "compatibilityLevel": "JAVA_17",
-  "mixins": [
-    "DataPackContentsMixin"
-  ],
+  "mixins": ["DataPackContentsMixin"],
   "client": [],
   "injectors": {
     "defaultRequire": 1
