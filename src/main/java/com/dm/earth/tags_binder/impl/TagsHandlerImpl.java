@@ -1,15 +1,17 @@
 package com.dm.earth.tags_binder.impl;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import com.dm.earth.tags_binder.api.LoadTagsCallback;
-
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.registry.tag.TagManagerLoader;
 import net.minecraft.util.Identifier;
-
-import java.util.*;
 
 public class TagsHandlerImpl<T> implements LoadTagsCallback.TagHandler<T> {
 

@@ -1,7 +1,6 @@
 package com.dm.earth.tags_binder.impl;
 
 import com.dm.earth.tags_binder.api.LoadTagsCallback;
-
 import net.minecraft.block.Block;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
@@ -10,7 +9,8 @@ import net.minecraft.registry.tag.TagManagerLoader;
 
 public class TagsCallbackInvoker {
 	@SuppressWarnings("unchecked")
-	public static <T> TagManagerLoader.RegistryTags<T> call(TagManagerLoader.RegistryTags<T> value) {
+	public static <T> TagManagerLoader.RegistryTags<T> call(
+			TagManagerLoader.RegistryTags<T> value) {
 		TagsHandlerImpl<T> impl = new TagsHandlerImpl<>(value);
 		if (value.key().equals(RegistryKeys.ITEM))
 			LoadTagsCallback.ITEM.invoker().load((LoadTagsCallback.TagHandler<Item>) impl);
