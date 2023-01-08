@@ -6,7 +6,7 @@ import com.dm.earth.tags_binder.api.ResourceConditionCheckTagCallback;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.item.Items;
-import net.minecraft.tag.ItemTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 

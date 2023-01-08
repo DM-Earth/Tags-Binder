@@ -5,12 +5,13 @@ import com.dm.earth.tags_binder.test.TagsBinderTest;
 
 import net.fabricmc.fabric.impl.resource.conditions.ResourceConditionsImpl;
 
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -24,7 +25,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @SuppressWarnings("UnstableApiUsage")
 @Mixin(ResourceConditionsImpl.class)
 public class ResourceConditionsImplMixin {
-	@Inject(method = "tagsPopulatedMatch", at = @At("HEAD"), cancellable = true)
+	@Inject(method = "tagsPopulatedMatch(Lcom/google/gson/JsonObject;Lnet/minecraft/registry/RegistryKey;)Z", at = @At("HEAD"), cancellable = true)
 	private static <T> void tagsPopulatedMatch(JsonObject object, RegistryKey<? extends Registry<T>> registryKey, CallbackInfoReturnable<Boolean> cir) {
 		JsonArray array = JsonHelper.getArray(object, "values");
 
@@ -32,20 +33,20 @@ public class ResourceConditionsImplMixin {
 			if (element.isJsonPrimitive()) {
 				Identifier id = new Identifier(element.getAsString());
 
-				if (registryKeyEq(registryKey, Registry.ITEM_KEY)) {
-					ActionResult result = ResourceConditionCheckTagCallback.ITEM.invoker().apply(TagKey.of(Registry.ITEM_KEY, id));
+				if (registryKeyEq(registryKey, RegistryKeys.ITEM)) {
+					ActionResult result = ResourceConditionCheckTagCallback.ITEM.invoker().apply(TagKey.of(RegistryKeys.ITEM, id));
 					if (result != ActionResult.PASS) {
 						cir.setReturnValue(result.isAccepted());
 						return;
 					}
-				} else if (registryKeyEq(registryKey, Registry.BLOCK_KEY)) {
-					ActionResult result = ResourceConditionCheckTagCallback.BLOCK.invoker().apply(TagKey.of(Registry.BLOCK_KEY, id));
+				} else if (registryKeyEq(registryKey, RegistryKeys.BLOCK)) {
+					ActionResult result = ResourceConditionCheckTagCallback.BLOCK.invoker().apply(TagKey.of(RegistryKeys.BLOCK, id));
 					if (result != ActionResult.PASS) {
 						cir.setReturnValue(result.isAccepted());
 						return;
 					}
-				} else if (registryKeyEq(registryKey, Registry.FLUID_KEY)) {
-					ActionResult result = ResourceConditionCheckTagCallback.FLUID.invoker().apply(TagKey.of(Registry.FLUID_KEY, id));
+				} else if (registryKeyEq(registryKey, RegistryKeys.FLUID)) {
+					ActionResult result = ResourceConditionCheckTagCallback.FLUID.invoker().apply(TagKey.of(RegistryKeys.FLUID, id));
 					if (result != ActionResult.PASS) {
 						cir.setReturnValue(result.isAccepted());
 						return;

@@ -1,17 +1,18 @@
 package com.dm.earth.tags_binder.api;
 
-import java.util.List;
-import java.util.Map;
-
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
+
 import net.minecraft.block.Block;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
-import net.minecraft.tag.Tag;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.RegistryEntry;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 @FunctionalInterface
 public interface LoadTagsCallback<T> {
@@ -38,7 +39,7 @@ public interface LoadTagsCallback<T> {
 
 	@SuppressWarnings("unchecked")
 	interface TagHandler<T> {
-		Map<Identifier, Tag<RegistryEntry<T>>> get();
+		Map<Identifier, Collection<RegistryEntry<T>>> get();
 
 		void register(Identifier tag, T... values);
 
