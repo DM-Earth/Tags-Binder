@@ -33,21 +33,21 @@ public class ResourceConditionsImplMixin {
 
 				if (registryKeyEq(registryKey, RegistryKeys.ITEM)) {
 					ActionResult result = ResourceConditionCheckTagCallback.ITEM.invoker()
-							.apply(TagKey.of(RegistryKeys.ITEM, id));
+							.resourceConditionCheckTag(TagKey.of(RegistryKeys.ITEM, id));
 					if (result != ActionResult.PASS) {
 						cir.setReturnValue(result.isAccepted());
 						return;
 					}
 				} else if (registryKeyEq(registryKey, RegistryKeys.BLOCK)) {
 					ActionResult result = ResourceConditionCheckTagCallback.BLOCK.invoker()
-							.apply(TagKey.of(RegistryKeys.BLOCK, id));
+							.resourceConditionCheckTag(TagKey.of(RegistryKeys.BLOCK, id));
 					if (result != ActionResult.PASS) {
 						cir.setReturnValue(result.isAccepted());
 						return;
 					}
 				} else if (registryKeyEq(registryKey, RegistryKeys.FLUID)) {
 					ActionResult result = ResourceConditionCheckTagCallback.FLUID.invoker()
-							.apply(TagKey.of(RegistryKeys.FLUID, id));
+							.resourceConditionCheckTag(TagKey.of(RegistryKeys.FLUID, id));
 					if (result != ActionResult.PASS) {
 						cir.setReturnValue(result.isAccepted());
 						return;

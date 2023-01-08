@@ -1,8 +1,10 @@
 package com.dm.earth.tags_binder.api;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
-
 import net.minecraft.block.Block;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
@@ -10,32 +12,28 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 @FunctionalInterface
 public interface LoadTagsCallback<T> {
 
-	Event<LoadTagsCallback<Item>> ITEM = EventFactory.createArrayBacked(LoadTagsCallback.class,
-			listeners -> handler -> {
+	Event<LoadTagsCallback<Item>> ITEM =
+			EventFactory.createArrayBacked(LoadTagsCallback.class, listeners -> handler -> {
 				for (LoadTagsCallback<Item> listener : listeners)
-					listener.load(handler);
+					listener.onTagsLoad(handler);
 			});
 
-	Event<LoadTagsCallback<Block>> BLOCK = EventFactory.createArrayBacked(LoadTagsCallback.class,
-			listeners -> handler -> {
+	Event<LoadTagsCallback<Block>> BLOCK =
+			EventFactory.createArrayBacked(LoadTagsCallback.class, listeners -> handler -> {
 				for (LoadTagsCallback<Block> listener : listeners)
-					listener.load(handler);
+					listener.onTagsLoad(handler);
 			});
 
-	Event<LoadTagsCallback<Fluid>> FLUID = EventFactory.createArrayBacked(LoadTagsCallback.class,
-			listeners -> handler -> {
+	Event<LoadTagsCallback<Fluid>> FLUID =
+			EventFactory.createArrayBacked(LoadTagsCallback.class, listeners -> handler -> {
 				for (LoadTagsCallback<Fluid> listener : listeners)
-					listener.load(handler);
+					listener.onTagsLoad(handler);
 			});
 
-	void load(TagHandler<T> handler);
+	void onTagsLoad(TagHandler<T> handler);
 
 	@SuppressWarnings("unchecked")
 	interface TagHandler<T> {

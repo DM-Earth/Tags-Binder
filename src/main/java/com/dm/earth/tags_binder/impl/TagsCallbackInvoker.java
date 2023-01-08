@@ -13,11 +13,11 @@ public class TagsCallbackInvoker {
 			TagManagerLoader.RegistryTags<T> value) {
 		TagsHandlerImpl<T> impl = new TagsHandlerImpl<>(value);
 		if (value.key().equals(RegistryKeys.ITEM))
-			LoadTagsCallback.ITEM.invoker().load((LoadTagsCallback.TagHandler<Item>) impl);
+			LoadTagsCallback.ITEM.invoker().onTagsLoad((LoadTagsCallback.TagHandler<Item>) impl);
 		if (value.key().equals(RegistryKeys.BLOCK))
-			LoadTagsCallback.BLOCK.invoker().load((LoadTagsCallback.TagHandler<Block>) impl);
+			LoadTagsCallback.BLOCK.invoker().onTagsLoad((LoadTagsCallback.TagHandler<Block>) impl);
 		if (value.key().equals(RegistryKeys.FLUID))
-			LoadTagsCallback.FLUID.invoker().load((LoadTagsCallback.TagHandler<Fluid>) impl);
+			LoadTagsCallback.FLUID.invoker().onTagsLoad((LoadTagsCallback.TagHandler<Fluid>) impl);
 		return new TagManagerLoader.RegistryTags<>(value.key(), impl.get());
 	}
 }
