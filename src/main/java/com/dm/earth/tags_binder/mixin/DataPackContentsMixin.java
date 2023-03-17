@@ -4,7 +4,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import com.dm.earth.tags_binder.impl.TagsCallbackInvoker;
-import net.minecraft.registry.tag.TagManagerLoader;
+import net.minecraft.tag.TagManagerLoader;
 import net.minecraft.server.DataPackContents;
 
 @Mixin(DataPackContents.class)

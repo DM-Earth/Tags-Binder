@@ -4,7 +4,7 @@ import org.jetbrains.annotations.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
-import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.util.registry.RegistryEntry;
 
 public class RegistryEntryAccess {
 	@Nullable

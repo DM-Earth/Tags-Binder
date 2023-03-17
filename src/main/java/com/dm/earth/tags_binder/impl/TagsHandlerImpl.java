@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.dm.earth.tags_binder.api.LoadTagsCallback;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.registry.tag.TagKey;
-import net.minecraft.registry.tag.TagManagerLoader;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.tag.TagKey;
+import net.minecraft.tag.TagManagerLoader;
 import net.minecraft.util.Identifier;
 
 public class TagsHandlerImpl<T> implements LoadTagsCallback.TagHandler<T> {
@@ -69,6 +69,6 @@ public class TagsHandlerImpl<T> implements LoadTagsCallback.TagHandler<T> {
 
 	@Override
 	public List<TagKey<T>> getKeys() {
-		return this.map.keySet().stream().map(id -> TagKey.of(key, id)).toList();
+		return this.map.keySet().stream().map(id -> (TagKey<T>) TagKey.of(key, id)).toList();
 	}
 }
