@@ -22,7 +22,7 @@ import net.minecraft.util.JsonHelper;
 @Mixin(ResourceConditionsImpl.class)
 public class ResourceConditionsImplMixin {
 
-	@Inject(method = "tagsPopulatedMatch",
+	@Inject(method = "tagsPopulatedMatch(Lcom/google/gson/JsonObject;Lnet/minecraft/util/registry/RegistryKey;)Z",
 			at = @At("HEAD"), cancellable = true)
 	private static <T> void tagsPopulatedMatch(JsonObject object,
 											   RegistryKey<? extends Registry<T>> registryKey, CallbackInfoReturnable<Boolean> cir) {
